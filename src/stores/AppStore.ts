@@ -1,7 +1,0 @@
-
-
-class AppStore {
-  constructor() {
-
-  }
-}
