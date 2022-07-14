@@ -10,16 +10,22 @@ import {
 import Header from "./components/Header";
 import ShopBody from "./components/ShopBody";
 import CardStore from "./stores/CardStore";
-import {StoresNames} from "./stores/stores";
 import theme from "./styles/theme";
 
+import dataFromJson from './data/data.json';
+
 function App() {
+  const {products} = dataFromJson.data;
+  // console.log(products);
+
   // const appStore = new AppStore();
   const cardStore = new CardStore();
 
+  cardStore.addProducts(products);
+
   const stores = {
-    // [StoresNames.AppStore]: appStore,
-    [StoresNames.CardStore]: cardStore
+    // 'AppStore': appStore,
+    'CardStore': cardStore
   };
 
   return (
@@ -27,6 +33,7 @@ function App() {
       <Provider {...stores}>
         <BrowserRouter>
           <Header/>
+          &nbsp;
           <ShopBody/>
         </BrowserRouter>
       </Provider>
