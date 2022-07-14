@@ -10,7 +10,7 @@ function Header() {
             Аптека
           </Typography>
           <Button color="inherit">
-            Корзина
+            Login
           </Button>
         </Toolbar>
       </AppBar>

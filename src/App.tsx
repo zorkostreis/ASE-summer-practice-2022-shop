@@ -1,26 +1,36 @@
+import {ThemeProvider} from "@emotion/react";
+import {Provider} from 'mobx-react';
 import React from 'react';
 
 import {
-  BrowserRouter as Router,
+  BrowserRouter,
   Route
 } from 'react-router-dom';
 
-import {ThemeProvider} from "@emotion/react";
 import Header from "./components/Header";
 import ShopBody from "./components/ShopBody";
-import theme from "./styles/mui-themes/theme";
+import CardStore from "./stores/CardStore";
+import {StoresNames} from "./stores/stores";
+import theme from "./styles/theme";
 
 function App() {
-  // const store = new CardStore();
+  // const appStore = new AppStore();
+  const cardStore = new CardStore();
 
+  const stores = {
+    // [StoresNames.AppStore]: appStore,
+    [StoresNames.CardStore]: cardStore
+  };
 
   return (
-    <Router>
-      <ThemeProvider theme={theme}>
-        <Header/>
-        <ShopBody/>
-      </ThemeProvider>
-    </Router>
+    <ThemeProvider theme={theme}>
+      <Provider {...stores}>
+        <BrowserRouter>
+          <Header/>
+          <ShopBody/>
+        </BrowserRouter>
+      </Provider>
+    </ThemeProvider>
   );
 }
 
