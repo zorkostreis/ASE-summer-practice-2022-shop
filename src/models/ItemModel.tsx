@@ -9,11 +9,11 @@ export default class ItemModel {
 
   substanceCode: string;
 
-  constructor(product: any) {
-    this.id = product.id;
-    this.name = product.name;
-    this.substanceId = product.substance.id;
-    this.substanceName = product.substance.name;
-    this.substanceCode = product.substance.code;
+  constructor(item: any) {
+    this.id = item.id;
+    this.name = item.name;
+    this.substanceId = item.substance.id;
+    this.substanceName = item.substance.name;
+    this.substanceCode = item.substance.code;
   }
 }

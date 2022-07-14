@@ -16,7 +16,6 @@ import dataFromJson from './data/data.json';
 
 function App() {
   const {products} = dataFromJson.data;
-  // console.log(products);
 
   // const appStore = new AppStore();
   const cardStore = new CardStore();
