@@ -1,6 +1,5 @@
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import {Button, Card, CardActionArea, CardActions, CardContent, Typography} from "@mui/material";
-
 import React from 'react';
 
 export default function CardItem(props: any) {

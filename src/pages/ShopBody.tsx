@@ -1,12 +1,13 @@
 import {Container, Grid} from "@mui/material";
+import {inject, observer} from "mobx-react";
 import React from "react";
 
-import {inject, observer} from "mobx-react";
-import CardItem from "./CardItem";
 import ItemModel from "../models/ItemModel";
+import CardItem from "../components/CardItem";
+import {storeNames} from "../stores/StoreDictionary";
 
-function ShopBody(props: any) {
-  const cardStore = props.CardStore;
+function ShopBody(stores: any) {
+  const cardStore = stores[storeNames.CardStoreName];
   const products = cardStore.items;
 
   return (
@@ -23,4 +24,4 @@ function ShopBody(props: any) {
   );
 }
 
-export default inject('CardStore')(observer(ShopBody));
+export default inject(storeNames.CardStoreName)(observer(ShopBody));

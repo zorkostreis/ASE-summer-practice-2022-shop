@@ -1,18 +1,17 @@
-import {ThemeProvider} from "@emotion/react";
+import {ThemeProvider} from '@mui/material/styles';
 import {Provider} from 'mobx-react';
 import React from 'react';
-
 import {
   BrowserRouter,
   Route
 } from 'react-router-dom';
 
-import Header from "./components/Header";
-import ShopBody from "./components/ShopBody";
+import Header from "./components/system/Header";
+import ShopBody from "./pages/ShopBody";
+import dataFromJson from './data/data.json';
 import CardStore from "./stores/CardStore";
 import theme from "./styles/theme";
-
-import dataFromJson from './data/data.json';
+import {storeNames} from "./stores/StoreDictionary";
 
 function App() {
   const {products} = dataFromJson.data;
@@ -20,11 +19,11 @@ function App() {
   // const appStore = new AppStore();
   const cardStore = new CardStore();
 
-  cardStore.addProducts(products);
+  cardStore.setItems(products);
 
   const stores = {
-    // 'AppStore': appStore,
-    'CardStore': cardStore
+    // [storeNames.AppStoreName]: appStore,
+    [storeNames.CardStoreName]: cardStore
   };
 
   return (
@@ -32,7 +31,6 @@ function App() {
       <Provider {...stores}>
         <BrowserRouter>
           <Header/>
-          &nbsp;
           <ShopBody/>
         </BrowserRouter>
       </Provider>

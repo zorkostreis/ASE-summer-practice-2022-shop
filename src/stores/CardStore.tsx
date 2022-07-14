@@ -1,4 +1,5 @@
 import {makeAutoObservable} from "mobx";
+
 import ItemModel from "../models/ItemModel";
 
 export default class CardStore{
@@ -9,20 +10,20 @@ export default class CardStore{
     this.items = [];
   }
 
-  addProducts = (products: any[]) => {
-    this.items = products.map((product: any) => new ItemModel(product));
+  setItems = (items: any[]) => {
+    this.items = items.map((item: any) => new ItemModel(item));
   };
 
-  // createItem (props: any) {
-  //   const newItem = new ItemModel(props);
-  //   this.items = [...this.items, newItem];
-  // }
-  //
-  // updateItem (props: any) {
-  //   this.items = (this.items.map(item => (item.id === props.id ? props : item)));
-  // }
-  //
-  // deleteItem (id: number) {
-  //   this.items = this.items.filter(item => item.id !== id);
-  // }
+  createItem (item: any) {
+    const newItem = new ItemModel(item);
+    this.items = [...this.items, newItem];
+  }
+
+  updateItem (props: any) {
+    this.items = (this.items.map(item => (item.id === props.id ? props : item)));
+  }
+
+  deleteItem (id: number) {
+    this.items = this.items.filter(item => item.id !== id);
+  }
 }
