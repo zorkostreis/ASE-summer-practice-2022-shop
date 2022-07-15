@@ -1,21 +1,21 @@
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import {Button, Card, CardActionArea, CardActions, CardContent, Typography} from "@mui/material";
-
 import React from 'react';
+import ItemModel from "../models/ItemModel";
 
-export default function CardItem(props: any) {
+export default function CardItem({item}: {item: ItemModel}) {
   return (
     <Card sx={{ minHeight: "100%" }}>
       <CardActionArea>
         <CardContent>
           <Typography gutterBottom variant="h6" component="div">
-            {props.product.name}
+            {item.name}
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            {props.product.substanceName}
+            {item.substanceName}
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            {props.product.substanceCode}
+            {item.substanceCode}
           </Typography>
         </CardContent>
       </CardActionArea>
