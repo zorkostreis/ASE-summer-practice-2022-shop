@@ -4,12 +4,12 @@ import React from "react";
 
 import CardItem from "../components/CardItem";
 import ItemModel from "../models/ItemModel";
-import {storeNames} from "../stores/StoreDictionary";
-import CardStore from "../stores/CardStore";
+import {StoresNames} from "../stores/StoreDictionary";
+// import CardStore from "../stores/CardStore";
 
 // interface storesProps {
-//   // [storeNames.AppStoreName]: AppStore
-//   [storeNames.CardStoreName]: CardStore
+//   // [StoresNames.AppStoreName]: AppStore
+//   [StoresNames.CardStoreName]: CardStore
 // }
 
 function ShopBody(stores: any) {
@@ -29,4 +29,4 @@ function ShopBody(stores: any) {
   );
 }
 
-export default inject(storeNames.CardStoreName)(observer(ShopBody));
+export default inject(StoresNames.CardStoreName)(observer(ShopBody));

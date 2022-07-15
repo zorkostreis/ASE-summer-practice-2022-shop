@@ -1,17 +1,18 @@
 import {ThemeProvider} from '@mui/material/styles';
 import {Provider} from 'mobx-react';
 import React from 'react';
+
 import {
   BrowserRouter,
   Route
 } from 'react-router-dom';
 
 import Header from "./components/system/Header";
-import ShopBody from "./pages/ShopBody";
 import dataFromJson from './data/data.json';
+import ShopBody from "./pages/ShopBody";
 import CardStore from "./stores/CardStore";
+import {StoresNames} from "./stores/StoreDictionary";
 import theme from "./styles/theme";
-import {storeNames} from "./stores/StoreDictionary";
 
 function App() {
   const {products} = dataFromJson.data;
@@ -23,16 +24,16 @@ function App() {
 
   const stores = {
     // [storeNames.AppStoreName]: appStore,
-    [storeNames.CardStoreName]: cardStore
+    [StoresNames.CardStoreName]: cardStore
   };
 
   return (
     <ThemeProvider theme={theme}>
       <Provider {...stores}>
-        <BrowserRouter>
+        <div className='header'>
           <Header/>
-          <ShopBody/>
-        </BrowserRouter>
+        </div>
+        <ShopBody/>
       </Provider>
     </ThemeProvider>
   );

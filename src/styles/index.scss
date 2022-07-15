@@ -3,3 +3,18 @@
 body {
   background: $background-color;
 }
+
+.header {
+  margin-bottom: 1em;
+}
+
+.card-button {
+  margin-left: auto
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  height: 190px;
+}

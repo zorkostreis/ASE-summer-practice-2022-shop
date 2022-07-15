@@ -6,7 +6,7 @@ function Header() {
     <Box>
       <AppBar position="static">
         <Toolbar>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+          <Typography variant="h5" sx={{ flexGrow: 1 }}>
             Pharmacy
           </Typography>
           <Button color="inherit">

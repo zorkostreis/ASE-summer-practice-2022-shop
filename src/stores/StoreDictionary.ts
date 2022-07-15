@@ -1,4 +1,4 @@
-export enum storeNames  {
+export enum StoresNames  {
   // AppStoreName = 'AppStore',
   CardStoreName = 'CardStore'
 }
