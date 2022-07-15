@@ -2,14 +2,9 @@ import {ThemeProvider} from '@mui/material/styles';
 import {Provider} from 'mobx-react';
 import React from 'react';
 
-import {
-  BrowserRouter,
-  Route
-} from 'react-router-dom';
-
 import Header from "./components/system/Header";
 import dataFromJson from './data/data.json';
-import ShopBody from "./pages/ShopBody";
+import Router from "./Router";
 import CardStore from "./stores/CardStore";
 import {StoresNames} from "./stores/StoreDictionary";
 import theme from "./styles/theme";
@@ -30,10 +25,8 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <Provider {...stores}>
-        <div className='header'>
-          <Header/>
-        </div>
-        <ShopBody/>
+        <Header/>
+        <Router/>
       </Provider>
     </ThemeProvider>
   );

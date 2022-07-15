@@ -20,6 +20,10 @@ export default class CardStore {
     this.items = [...this.items, newItem];
   };
 
+  readItem(id: number) {
+    return this.items.find((item: ItemModel) => item.id === id);
+  }
+
   updateItem (product: ItemModel) {
     this.items = (this.items.map(item => (item.id === product.id ? product : item)));
   };

@@ -12,7 +12,7 @@ import {StoresNames} from "../stores/StoreDictionary";
 //   [StoresNames.CardStoreName]: CardStore
 // }
 
-function ShopBody(stores: any) {
+function Catalog(stores: any) {
   const {items} = stores.CardStore;
 
   return (
@@ -29,4 +29,4 @@ function ShopBody(stores: any) {
   );
 }
 
-export default inject(StoresNames.CardStoreName)(observer(ShopBody));
+export default inject(StoresNames.CardStoreName)(observer(Catalog));

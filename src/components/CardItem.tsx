@@ -1,7 +1,8 @@
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import {Button, Card, CardActionArea, CardActions, CardContent, Typography} from "@mui/material";
-import React from 'react';
 import Divider from '@mui/material/Divider';
+import React from 'react';
+import {Link} from "react-router-dom";
 
 import ItemModel from "../models/ItemModel";
 
@@ -12,7 +13,10 @@ interface CardItemProps {
 export default function CardItem({item}: CardItemProps) {
   return (
     <Card sx={{ minHeight: '100%' }}>
-      <CardActionArea>
+      <CardActionArea
+        component={Link}
+        to={`/catalog/${item.id}`}
+      >
         <CardContent className='card-content'>
           <Typography variant="h6">
             {item.name}
