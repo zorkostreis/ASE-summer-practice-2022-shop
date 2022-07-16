@@ -1,24 +1,37 @@
-import {Container, Grid} from "@mui/material";
+import {Container, Grid, Pagination} from "@mui/material";
 import {inject, observer} from "mobx-react";
-import React from "react";
+import React, {useState} from "react";
 
 import CardItem from "../components/CardItem";
 import ItemModel from "../models/ItemModel";
 import {StoresNames} from "../stores/StoreDictionary";
-// import CardStore from "../stores/CardStore";
-
-// interface storesProps {
-//   // [StoresNames.AppStoreName]: AppStore
-//   [StoresNames.CardStoreName]: CardStore
-// }
 
 function Catalog(stores: any) {
+  const [page, setPage] = useState(1);
+
   const {items} = stores.CardStore;
+
+  const itemsPerPage = 8;
+  const pagesCount = Math.ceil(items.length / itemsPerPage);
+  const currentItems = items.slice((page - 1) * itemsPerPage, page * itemsPerPage);
+
+  const handleChange = (event: React.ChangeEvent<unknown>, value: number) => {
+    setPage(value);
+  };
 
   return (
     <Container maxWidth="lg">
-      <Grid container spacing={3}> {
-        items.map((item: ItemModel) =>
+      <Pagination
+        count={pagesCount}
+        page={page}
+        onChange={handleChange}
+        size="large"
+        className="pagination-bar"
+        showFirstButton
+        showLastButton
+      />
+      <Grid container spacing={2}> {
+        currentItems.map((item: ItemModel) =>
           <Grid item xs={3} key={item.id}>
             <CardItem item={item}/>
           </Grid>

@@ -3,14 +3,14 @@ import {Provider} from 'mobx-react';
 import React from 'react';
 
 import Header from "./components/system/Header";
-import dataFromJson from './data/data.json';
+import response from './data/response.json';
 import Router from "./Router";
 import CardStore from "./stores/CardStore";
 import {StoresNames} from "./stores/StoreDictionary";
 import theme from "./styles/theme";
 
 function App() {
-  const {products} = dataFromJson.data;
+  const {products} = response.data;
 
   // const appStore = new AppStore();
   const cardStore = new CardStore();

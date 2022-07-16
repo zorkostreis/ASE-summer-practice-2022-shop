@@ -8,7 +8,7 @@ function Router() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/catalog" element={<Catalog/>}/>
+        <Route path="catalog" element={<Catalog/>}/>
         <Route path="catalog/:id" element={<ItemPage/>}/>
       </Routes>
     </BrowserRouter>

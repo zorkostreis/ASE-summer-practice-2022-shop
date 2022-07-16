@@ -3,7 +3,7 @@ import React from 'react';
 
 function Header() {
   return (
-    <Box style={{ marginBottom: "1em" }}>
+    <Box>
       <AppBar position="static">
         <Toolbar>
           <Typography variant="h5" sx={{ flexGrow: 1 }}>

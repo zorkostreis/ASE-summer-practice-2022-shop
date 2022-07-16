@@ -13,7 +13,7 @@ function ItemPage(stores: any) {
   const item = cardStore.readItem(Number(id));
 
   return (
-    <Card sx={{ maxWidth: "40%", display: "flex", margin: "auto", justifyContent: "center"}}>
+    <Card sx={{ maxWidth: "40%", display: "flex", justifyContent: "center", margin: "auto", marginTop: "2em" }}>
       <CardContent>
         <CardMedia
           component="img"
@@ -25,7 +25,7 @@ function ItemPage(stores: any) {
         <Typography variant="h6">
           {item.name}
         </Typography>
-        <Divider />
+        <Divider/>
         <Typography variant="body1">
           {item.substanceName}
         </Typography>

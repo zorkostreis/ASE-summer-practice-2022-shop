@@ -4,10 +4,6 @@ body {
   background: $background-color;
 }
 
-.header {
-  margin-bottom: 1em;
-}
-
 .card-button {
   margin-left: auto
 }
@@ -17,4 +13,10 @@ body {
   flex-direction: column;
   gap: 0.5em;
   height: 190px;
+}
+
+.pagination-bar {
+  display: flex;
+  justify-content: center;
+  margin: 0.8em;
 }
