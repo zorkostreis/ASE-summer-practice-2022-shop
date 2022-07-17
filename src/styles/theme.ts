@@ -1,11 +1,12 @@
 import "./fonts.scss";
 
 import {createTheme} from "@mui/material/styles";
+import colors from './colors.modules.scss';
 
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#79678a',
+      main: colors.primary,
     },
   },
   typography: {
@@ -18,17 +19,17 @@ const theme = createTheme({
     h6: {
       fontWeight: 400,
       fontSize: "large",
-      color: '#3a3342'
+      color: colors.cardName
     },
     body1: {
       fontWeight: 300,
       fontSize: "medium",
-      color: '#48454b'
+      color: colors.cardSubstanceName
     },
     body2: {
       fontWeight: 300,
       fontSize: "small",
-      color: '#79787a'
+      color: colors.cardSubstanceCode
     },
     button: {
       fontWeight: 300,

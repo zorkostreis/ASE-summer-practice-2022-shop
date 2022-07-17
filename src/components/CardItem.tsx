@@ -21,7 +21,7 @@ export default function CardItem({item}: CardItemProps) {
           <Typography variant="h6">
             {item.name}
           </Typography>
-          <Divider />
+          <Divider/>
           <Typography variant="body1">
             {item.substanceName}
           </Typography>
