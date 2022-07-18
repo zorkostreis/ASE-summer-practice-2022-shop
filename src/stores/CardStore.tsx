@@ -6,13 +6,20 @@ import IProduct from "../models/ProductInterface";
 export default class CardStore {
   items: ItemModel[];
 
+  count: number;
+
   constructor() {
     makeAutoObservable(this);
     this.items = [];
+    this.count = 0;
   };
 
   setItems = (products: IProduct[]) => {
     this.items = products.map((product: IProduct) => new ItemModel(product));
+  };
+
+  setCount = (count: number) => {
+    this.count = count;
   };
 
   createItem (product: IProduct) {

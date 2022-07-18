@@ -2,30 +2,34 @@ import {ThemeProvider} from '@mui/material/styles';
 import {Provider} from 'mobx-react';
 import React from 'react';
 
-import Header from "./components/system/Header";
-import response from './data/response.json';
 import Router from "./Router";
+import ItemService from "./services/ItemService";
+import NetworkService from "./services/NetworkService";
+import {ServicesNames} from "./services/ServiceDictionary";
 import CardStore from "./stores/CardStore";
 import {StoresNames} from "./stores/StoreDictionary";
 import theme from "./styles/theme";
 
 function App() {
-  const {products} = response.data;
-
   // const appStore = new AppStore();
   const cardStore = new CardStore();
 
-  cardStore.setItems(products);
+  const networkService = new NetworkService();
+  const itemService = new ItemService(cardStore, networkService);
 
   const stores = {
     // [storeNames.AppStoreName]: appStore,
     [StoresNames.CardStoreName]: cardStore
   };
 
+  const services = {
+    [ServicesNames.ItemServiceName]: itemService,
+    [ServicesNames.NetworkServiceName]: networkService
+  };
+
   return (
     <ThemeProvider theme={theme}>
-      <Provider {...stores}>
-        <Header/>
+      <Provider {...stores} {...services}>
         <Router/>
       </Provider>
     </ThemeProvider>

@@ -1,26 +1,30 @@
-import {Container, Grid, Pagination} from "@mui/material";
+import {Grid, Pagination} from "@mui/material";
 import {inject, observer} from "mobx-react";
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 
 import CardItem from "../components/CardItem";
+import Header from "../components/system/Header";
 import ItemModel from "../models/ItemModel";
+import {ServicesNames} from "../services/ServiceDictionary";
 import {StoresNames} from "../stores/StoreDictionary";
 
-function Catalog(stores: any) {
+function Catalog(props: any) {
   const [page, setPage] = useState(1);
 
-  const {items} = stores.CardStore;
-
-  const itemsPerPage = 8;
-  const pagesCount = Math.ceil(items.length / itemsPerPage);
-  const currentItems = items.slice((page - 1) * itemsPerPage, page * itemsPerPage);
+  const itemsPerPage = 32;
+  const pagesCount = Math.ceil(props.CardStore.count / itemsPerPage);
 
   const handleChange = (event: React.ChangeEvent<unknown>, value: number) => {
     setPage(value);
   };
 
+  useEffect(() => {
+    props.ItemService.getItems((page - 1) * itemsPerPage, itemsPerPage);
+  }, [page]);
+
   return (
-    <Container maxWidth="lg">
+    <div>
+      <Header/>
       <Pagination
         count={pagesCount}
         page={page}
@@ -30,16 +34,16 @@ function Catalog(stores: any) {
         showFirstButton
         showLastButton
       />
-      <Grid container spacing={2}> {
-        currentItems.map((item: ItemModel) =>
+      <Grid container spacing={2} maxWidth="95%" margin="auto"> {
+        props.CardStore.items.map((item: ItemModel) =>
           <Grid item xs={3} key={item.id}>
             <CardItem item={item}/>
           </Grid>
         )
       }
       </Grid>
-    </Container>
+    </div>
   );
 }
 
-export default inject(StoresNames.CardStoreName)(observer(Catalog));
+export default inject(StoresNames.CardStoreName, ServicesNames.ItemServiceName)(observer(Catalog));
