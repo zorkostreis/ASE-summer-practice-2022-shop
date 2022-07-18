@@ -1,1 +1,13 @@
 $background-color: #edecf3;
+
+$primary: #79678a;
+$cardName: #3a3342;
+$cardSubstanceName: #48454b;
+$cardSubstanceCode: #79787a;
+
+:export {
+  primary: $primary;
+  cardName: $cardName;
+  cardSubstanceName: $cardSubstanceName;
+  cardSubstanceCode: $cardSubstanceCode;
+}
