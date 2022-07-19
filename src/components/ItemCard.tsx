@@ -6,11 +6,11 @@ import {Link} from "react-router-dom";
 
 import ItemModel from "../models/ItemModel";
 
-interface CardItemProps {
+interface ItemCardProps {
   item: ItemModel
 }
 
-export default function CardItem({item}: CardItemProps) {
+export default function ItemCard({item}: ItemCardProps) {
   return (
     <Card sx={{ minHeight: '100%' }}>
       <CardActionArea

@@ -13,6 +13,9 @@ const theme = createTheme({
     fontFamily: [
       'Mulish'
     ].join(','),
+    allVariants: {
+      fontWeight: 300,
+    },
     h5: {
       fontWeight: 500,
     },
@@ -22,18 +25,13 @@ const theme = createTheme({
       color: colors.cardName
     },
     body1: {
-      fontWeight: 300,
       fontSize: "medium",
       color: colors.cardSubstanceName
     },
     body2: {
-      fontWeight: 300,
       fontSize: "small",
       color: colors.cardSubstanceCode
     },
-    button: {
-      fontWeight: 300,
-    }
   },
 });
 

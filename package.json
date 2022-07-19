@@ -25,12 +25,13 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
+    "typed-css-modules": "^0.7.2",
     "typescript": "^4.7.4",
-    "typings-for-css-modules-loader": "^1.7.0",
     "uuid": "^8.3.2",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "ts:css": "tcm -s -c -p src/**/*.module.scss",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
