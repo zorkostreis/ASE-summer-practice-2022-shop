@@ -3,12 +3,18 @@ import {inject, observer} from "mobx-react";
 import React, {useEffect, useState} from "react";
 
 import ItemCard from "../components/ItemCard";
-import Header from "../components/system/Header";
 import ItemModel from "../models/ItemModel";
+import ItemService from "../services/ItemService";
 import {ServicesNames} from "../services/ServiceDictionary";
+import ItemStore from "../stores/ItemStore";
 import {StoresNames} from "../stores/StoreDictionary";
 
-function CatalogPage(props: any) {
+interface props {
+  [StoresNames.ItemStoreName]: ItemStore,
+  [ServicesNames.ItemServiceName]: ItemService,
+}
+
+const CatalogPage = inject(StoresNames.ItemStoreName, ServicesNames.ItemServiceName)(observer((props: props) => {
   const [page, setPage] = useState(1);
 
   const itemsPerPage = 32;
@@ -24,7 +30,6 @@ function CatalogPage(props: any) {
 
   return (
     <div>
-      <Header/>
       <Pagination
         count={pagesCount}
         page={page}
@@ -44,6 +49,6 @@ function CatalogPage(props: any) {
       </Grid>
     </div>
   );
-}
+}));
 
-export default inject(StoresNames.ItemStoreName, ServicesNames.ItemServiceName)(observer(CatalogPage));
+export default CatalogPage;

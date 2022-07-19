@@ -1,20 +1,23 @@
-import {Card, CardContent, Grid, Typography} from "@mui/material";
+import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
+import {Button, Card, CardActionArea, CardActions, CardContent, Grid, Typography} from "@mui/material";
 import Divider from "@mui/material/Divider";
 import {inject, observer} from "mobx-react";
 import React from "react";
+import {Link} from "react-router-dom";
 
-import Header from "../components/system/Header";
 import ItemModel from "../models/ItemModel";
 import {StoresNames} from "../stores/StoreDictionary";
 
-function BasketPage(props: any) {
+const BasketPage = inject(StoresNames.BasketStoreName)(observer((props: any) => {
   return (
-    <div>
-      <Header/>
-      <Grid container spacing={2} maxWidth="95%" margin="auto"> {
-        props.BasketStore.items.map((item: ItemModel) =>
-          <Grid item xs={3} key={item.id}>
-            <Card sx={{ minHeight: '100%' }}>
+    <Grid container spacing={2} maxWidth="95%" margin="auto"> {
+      props.BasketStore.items.map((item: ItemModel) =>
+        <Grid item xs={3} key={item.id}>
+          <Card sx={{ minHeight: '100%' }}>
+            <CardActionArea
+              component={Link}
+              to={`/catalog/${item.id}`}
+            >
               <CardContent className='card-content'>
                 <Typography variant="h6">
                   {item.name}
@@ -27,13 +30,25 @@ function BasketPage(props: any) {
                   {item.substanceCode}
                 </Typography>
               </CardContent>
-            </Card>
-          </Grid>
-        )
-      }
-      </Grid>
-    </div>
+            </CardActionArea>
+            <CardActions>
+              <div className='card-button'>
+                <Button variant="outlined"
+                  startIcon={<DeleteOutlineIcon/>}
+                  onClick={() => props.BasketStore.deleteItem(item.id)}
+                >
+                  <Typography variant="button">
+                    Удалить
+                  </Typography>
+                </Button>
+              </div>
+            </CardActions>
+          </Card>
+        </Grid>
+      )
+    }
+    </Grid>
   );
-}
+}));
 
-export default inject(StoresNames.BasketStoreName)(observer(BasketPage));
+export default BasketPage;

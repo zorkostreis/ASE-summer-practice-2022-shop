@@ -13,4 +13,8 @@ export default class BasketStore {
   addItem = (newItem: ItemModel) => {
     this.items = [newItem, ...this.items];
   };
+
+  deleteItem = (id: number) => {
+    this.items = this.items.filter(item => item.id !== id);
+  };
 }

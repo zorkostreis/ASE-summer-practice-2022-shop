@@ -12,7 +12,11 @@ export default class ItemService {
   }
 
   async setItemStore(offset: number, limit: number) {
-    const {data} = await this.networkService.fetch(offset, limit);
+    const url = 'http://77.223.99.133:8080/api/products/part';
+    const requestType = 'POST';
+    const body = JSON.stringify({ offset, limit });
+
+    const {data} = await this.networkService.fetch(url, requestType, body);
     this.itemStore.setItems(data.products);
     this.itemStore.setCount(data.count);
   };

@@ -10,9 +10,7 @@ const theme = createTheme({
     },
   },
   typography: {
-    fontFamily: [
-      'Mulish'
-    ].join(','),
+    fontFamily: 'Mulish',
     allVariants: {
       fontWeight: 300,
     },
