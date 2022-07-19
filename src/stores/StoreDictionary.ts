@@ -1,5 +1,5 @@
 export enum StoresNames  {
   // AppStoreName = 'AppStore',
-  CardStoreName = 'CardStore',
-  // BasketStoreName = 'BasketStore'
+  ItemStoreName = 'ItemStore',
+  BasketStoreName = 'BasketStore'
 }

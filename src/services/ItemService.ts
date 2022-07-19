@@ -1,19 +1,19 @@
-import CardStore from "../stores/CardStore";
+import ItemStore from "../stores/ItemStore";
 import NetworkService from "./NetworkService";
 
 export default class ItemService {
-  cardStore: CardStore;
+  itemStore: ItemStore;
 
   networkService: NetworkService;
 
-  constructor(cardStore: CardStore, networkService: NetworkService) {
-    this.cardStore = cardStore;
+  constructor(itemStore: ItemStore, networkService: NetworkService) {
+    this.itemStore = itemStore;
     this.networkService = networkService;
   }
 
-  async getItems(offset: number, limit: number) {
-    const {data} = await this.networkService.fetchProducts(offset, limit);
-    this.cardStore.setItems(data.products);
-    this.cardStore.setCount(data.count);
+  async setItemStore(offset: number, limit: number) {
+    const {data} = await this.networkService.fetch(offset, limit);
+    this.itemStore.setItems(data.products);
+    this.itemStore.setCount(data.count);
   };
 }

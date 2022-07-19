@@ -8,10 +8,10 @@ import Header from "../components/system/Header";
 import {StoresNames} from "../stores/StoreDictionary";
 
 function ItemPage(stores: any) {
-  const cardStore = stores.CardStore;
+  const itemStore = stores.ItemStore;
   const {id} = useParams();
 
-  const item = cardStore.readItem(Number(id));
+  const item = itemStore.readItem(Number(id));
 
   return (
     <div>
@@ -47,4 +47,4 @@ function ItemPage(stores: any) {
   );
 }
 
-export default inject(StoresNames.CardStoreName)(observer(ItemPage));
+export default inject(StoresNames.ItemStoreName)(observer(ItemPage));

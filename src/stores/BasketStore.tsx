@@ -11,6 +11,6 @@ export default class BasketStore {
   };
 
   addItem = (newItem: ItemModel) => {
-    this.items = [...this.items, newItem];
+    this.items = [newItem, ...this.items];
   };
 }
