@@ -13,11 +13,13 @@ import {StoresNames} from "./stores/StoreDictionary";
 import theme from "./styles/theme";
 
 function App() {
+  const endpoint = process.env.REACT_APP_ENDPOINT as string;
+
   const appStore = new AppStore();
   const itemStore = new ItemStore();
   const basketStore = new BasketStore();
 
-  const networkService = new NetworkService(appStore.token);
+  const networkService = new NetworkService(endpoint, appStore.token);
   const itemService = new ItemService(itemStore, networkService);
 
   const stores = {

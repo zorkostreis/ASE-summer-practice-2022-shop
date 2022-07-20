@@ -7,13 +7,19 @@ function Header() {
     <AppBar position="static">
       <Toolbar>
         <Typography variant="h5" sx={{ flexGrow: 1 }}>
-            Pharmacy
+          Pharmacy
         </Typography>
+        <Button color="inherit"
+          component={Link}
+          to="/catalog"
+        >
+          Catalog
+        </Button>
         <Button color="inherit"
           component={Link}
           to="/basket"
         >
-            Basket
+          Basket
         </Button>
       </Toolbar>
     </AppBar>
