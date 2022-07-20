@@ -4,17 +4,10 @@ import React, {useEffect, useState} from "react";
 
 import ItemCard from "../components/ItemCard";
 import ItemModel from "../models/ItemModel";
-import ItemService from "../services/ItemService";
 import {ServicesNames} from "../services/ServiceDictionary";
-import ItemStore from "../stores/ItemStore";
 import {StoresNames} from "../stores/StoreDictionary";
 
-interface props {
-  [StoresNames.ItemStoreName]: ItemStore,
-  [ServicesNames.ItemServiceName]: ItemService,
-}
-
-const CatalogPage = inject(StoresNames.ItemStoreName, ServicesNames.ItemServiceName)(observer((props: props) => {
+const CatalogPage = inject(StoresNames.ItemStoreName, ServicesNames.ItemServiceName)(observer((props: any) => {
   const [page, setPage] = useState(1);
 
   const itemsPerPage = 32;

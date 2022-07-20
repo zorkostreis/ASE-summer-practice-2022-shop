@@ -5,16 +5,9 @@ import {inject, observer} from "mobx-react";
 import React from 'react';
 import {Link} from "react-router-dom";
 
-import ItemModel from "../models/ItemModel";
-import BasketStore from "../stores/BasketStore";
 import {StoresNames} from "../stores/StoreDictionary";
 
-interface ItemCardProps {
-  item: ItemModel,
-  [StoresNames.BasketStoreName]: BasketStore;
-}
-
-const ItemCard = inject(StoresNames.BasketStoreName)(observer((props: ItemCardProps) => {
+const ItemCard = inject(StoresNames.BasketStoreName)(observer((props: any) => {
   return (
     <Card sx={{ minHeight: '100%' }}>
       <CardActionArea
