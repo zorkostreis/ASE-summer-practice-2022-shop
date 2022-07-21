@@ -8,13 +8,16 @@ import {ServicesNames} from "../services/ServiceDictionary";
 import {StoresNames} from "../stores/StoreDictionary";
 
 const CatalogPage = inject(StoresNames.ItemStoreName, ServicesNames.ItemServiceName)(observer((props: any) => {
-  const [page, setPage] = useState(1);
+  const initialPage = localStorage.getItem('page') ? JSON.parse(localStorage.getItem('page') as string).number : 1;
+
+  const [page, setPage] = useState(initialPage);
 
   const itemsPerPage = 32;
   const pagesCount = Math.ceil(props.ItemStore.count / itemsPerPage);
 
   const handleChange = (event: React.ChangeEvent<unknown>, value: number) => {
     setPage(value);
+    localStorage.setItem('page', JSON.stringify({ 'number': value }));
   };
 
   useEffect(() => {

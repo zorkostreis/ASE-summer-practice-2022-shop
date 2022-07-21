@@ -12,7 +12,7 @@ export default class ItemService {
   }
 
   async setItemStore(offset: number, limit: number) {
-    const url = 'http://77.223.99.133:8080/api/products/part';
+    const url = 'products/part';
     const requestType = 'POST';
     const body = JSON.stringify({ offset, limit });
 

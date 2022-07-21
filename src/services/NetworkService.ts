@@ -1,7 +1,10 @@
 export default class NetworkService {
+  endpoint: string;
+
   token: string;
 
-  constructor(token: string) {
+  constructor(endpoint: string, token: string) {
+    this.endpoint = endpoint;
     this.token = token;
   }
 
@@ -17,7 +20,7 @@ export default class NetworkService {
     };
 
     return (
-      fetch(url, requestOptions)
+      fetch(`${this.endpoint}${url}`, requestOptions)
         .then((response) => response.json())
     );
   }
