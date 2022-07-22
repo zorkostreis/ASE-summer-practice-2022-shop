@@ -22,20 +22,20 @@ export default class ItemStore {
     this.count = count;
   };
 
-  createItem (product: IProduct) {
-    const newItem = new ItemModel(product);
-    this.items = [...this.items, newItem];
-  };
-
   readItem(id: number) {
     return this.items.find((item: ItemModel) => item.id === id);
   }
 
-  updateItem (product: ItemModel) {
-    this.items = (this.items.map(item => (item.id === product.id ? product : item)));
-  };
-
-  deleteItem (id: number) {
-    this.items = this.items.filter(item => item.id !== id);
-  };
+  // createItem (product: IProduct) {
+  //   const newItem = new ItemModel(product);
+  //   this.items = [...this.items, newItem];
+  // };
+  //
+  // updateItem (product: ItemModel) {
+  //   this.items = (this.items.map(item => (item.id === product.id ? product : item)));
+  // };
+  //
+  // deleteItem (id: number) {
+  //   this.items = this.items.filter(item => item.id !== id);
+  // };
 }

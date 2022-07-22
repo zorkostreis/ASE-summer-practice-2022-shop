@@ -30,14 +30,14 @@ const CatalogPage = inject(StoresNames.ItemStoreName, ServicesNames.ItemServiceN
         count={pagesCount}
         page={page}
         onChange={handleChange}
-        size="large"
+        // size="large"
         className="pagination-bar"
         showFirstButton
         showLastButton
       />
       <Grid container spacing={2} maxWidth="95%" margin="auto"> {
         props.ItemStore.items.map((item: ItemModel) =>
-          <Grid item xs={3} key={item.id}>
+          <Grid item xs={3} key={item.id} style={{ minWidth: "300px" }}>
             <ItemCard item={item}/>
           </Grid>
         )

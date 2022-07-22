@@ -13,13 +13,7 @@ const ItemPage = inject(StoresNames.ItemStoreName)(observer((props: any) => {
   const item = itemStore.readItem(Number(id));
 
   return (
-    <Card sx={{
-      maxWidth: "40%",
-      display: "flex",
-      justifyContent: "center",
-      margin: "auto",
-      marginTop: "2em"
-    }}>
+    <Card className="item-page-card">
       <CardContent>
         <CardMedia
           component="img"
