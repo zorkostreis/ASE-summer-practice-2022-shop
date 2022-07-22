@@ -8,6 +8,12 @@ const theme = createTheme({
     primary: {
       main: colors.primary,
     },
+    secondary: {
+      main: colors.secondary,
+    },
+    info: {
+      main: colors.info,
+    },
   },
   typography: {
     fontFamily: 'Mulish',
@@ -15,6 +21,8 @@ const theme = createTheme({
       fontWeight: 300,
     },
     h5: {
+      color: "inherit",
+      textDecoration: "none",
       fontWeight: 500,
     },
     h6: {

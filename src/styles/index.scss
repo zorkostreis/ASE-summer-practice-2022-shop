@@ -2,21 +2,38 @@
 
 body {
   background: $background-color;
+  margin: auto;
 }
 
-.card-button {
-  margin-left: auto
+.card-buttons {
+  display: flex;
+  justify-content: space-between;
 }
 
 .card-content {
   display: flex;
   flex-direction: column;
   gap: 0.5em;
-  height: 185px;
+  height: 220px;
+}
+
+.basket-item {
+  display: flex;
+  justify-content: space-between;
+  max-width: 75%;
+  margin: 1em auto auto;
+  padding: 1em;
 }
 
 .pagination-bar {
   display: flex;
   justify-content: center;
   margin-top: 0.8em;
+}
+
+.item-page-card {
+  max-width: 35%;
+  min-width: 400px;
+  margin: 2em auto auto;
+  padding: 1em;
 }
