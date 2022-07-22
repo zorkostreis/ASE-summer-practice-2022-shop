@@ -3,7 +3,7 @@ import {BrowserRouter, Route, Routes} from "react-router-dom";
 
 import CatalogPage from "./pages/CatalogPage";
 import ItemPage from "./pages/ItemPage";
-import BasketPage from "./pages/BasketPage";
+import CartPage from "./pages/CartPage";
 import Page from "./components/system/Page";
 
 function Router() {
@@ -20,7 +20,7 @@ function Router() {
       <Routes>
         <Route path="/" element={getPage(CatalogPage)}/>
         <Route path="/:id" element={getPage(ItemPage)}/>
-        <Route path="/basket" element={getPage(BasketPage)}/>
+        <Route path="/cart" element={getPage(CartPage)}/>
       </Routes>
     </BrowserRouter>
   );

@@ -7,7 +7,7 @@ import ItemService from "./services/ItemService";
 import NetworkService from "./services/NetworkService";
 import {ServicesNames} from "./services/ServiceDictionary";
 import AppStore from "./stores/AppStore";
-import BasketStore from "./stores/BasketStore";
+import CartStore from "./stores/CartStore";
 import ItemStore from "./stores/ItemStore";
 import {StoresNames} from "./stores/StoreDictionary";
 import theme from "./styles/theme";
@@ -17,14 +17,14 @@ function App() {
 
   const appStore = new AppStore();
   const itemStore = new ItemStore();
-  const basketStore = new BasketStore();
+  const cartStore = new CartStore();
 
   const networkService = new NetworkService(endpoint, appStore.token);
   const itemService = new ItemService(itemStore, networkService);
 
   const stores = {
     [StoresNames.ItemStoreName]: itemStore,
-    [StoresNames.BasketStoreName]: basketStore
+    [StoresNames.CartStoreName]: cartStore
   };
 
   const services = {

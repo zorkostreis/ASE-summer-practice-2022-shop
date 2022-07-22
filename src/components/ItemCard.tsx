@@ -8,7 +8,7 @@ import {Link} from "react-router-dom";
 
 import {StoresNames} from "../stores/StoreDictionary";
 
-const ItemCard = inject(StoresNames.BasketStoreName)(observer((props: any) => {
+const ItemCard = inject(StoresNames.CartStoreName)(observer((props: any) => {
   return (
     <Card>
       <CardContent className='card-content'>
@@ -33,7 +33,7 @@ const ItemCard = inject(StoresNames.BasketStoreName)(observer((props: any) => {
         </IconButton>
         <IconButton color="secondary"
           size="large"          
-          onClick={() => props.BasketStore.addItem(props.item)}
+          onClick={() => props.CartStore.addItem(props.item)}
         >
           <AddShoppingCartIcon/>
         </IconButton>
