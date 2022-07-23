@@ -2,7 +2,7 @@ import {Grid, Pagination} from "@mui/material";
 import {inject, observer} from "mobx-react";
 import React, {useEffect, useState} from "react";
 
-import ItemCard from "../components/ItemCard";
+import CatalogItemCard from "../components/CatalogItemCard";
 import ItemModel from "../models/ItemModel";
 import {ServicesNames} from "../services/ServiceDictionary";
 import {StoresNames} from "../stores/StoreDictionary";
@@ -38,7 +38,7 @@ const CatalogPage = inject(StoresNames.ItemStoreName, ServicesNames.ItemServiceN
       <Grid container spacing={2} maxWidth="95%" margin="auto"> {
         props.ItemStore.items.map((item: ItemModel) =>
           <Grid item xs={3} key={item.id} style={{ minWidth: "300px" }}>
-            <ItemCard item={item}/>
+            <CatalogItemCard item={item}/>
           </Grid>
         )
       }

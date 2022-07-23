@@ -1,0 +1,49 @@
+@import 'colors.modules';
+
+.cart-page {
+  display: flex;
+  background-color: white;
+  width: 80%;
+  min-width: 450px;
+  margin: 1.5em auto;
+  border-radius: 10px 10px 0 0;
+  border-bottom: 1px solid $primarySoft;
+}
+
+.cart-items-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 65%;
+  border-right: 1px solid $primarySoft;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  gap: 2em;
+  padding: 1.8em;
+  border-top: 0.5px solid $primarySoft;
+}
+
+.cart-item-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8em;
+}
+
+.cart-item-buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1em;
+}
+
+.cart-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 35%;
+  padding: 2em;
+  gap: 2em;
+}

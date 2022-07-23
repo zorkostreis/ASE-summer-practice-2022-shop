@@ -2,40 +2,37 @@ import AddIcon from "@mui/icons-material/Add";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import ReadMoreIcon from "@mui/icons-material/ReadMore";
 import RemoveIcon from "@mui/icons-material/Remove";
-import {Button, ButtonGroup, IconButton, Paper, Typography} from "@mui/material";
+import {Button, ButtonGroup, IconButton, Typography} from "@mui/material";
 import {inject, observer} from "mobx-react";
-import React, {useEffect, useState} from "react";
+import React from "react";
 import {Link} from "react-router-dom";
 
 import {StoresNames} from "../stores/StoreDictionary";
+import colors from "../styles/colors.modules.scss";
 
-const CartItemPaper = inject(StoresNames.CartStoreName)(observer((props: any) => {
-  const [amount, setAmount] = useState(props.item.amount);
-
-  useEffect(() => {
-    props.CartStore.setAmountById(props.item.info.id, amount as number);
-  }, [amount]);
-
+const CartItem = inject(StoresNames.CartStoreName)(observer((props: any) => {
   return (
-    <Paper  className='cart-item'>
-      <div>
+    <div className="cart-item">
+      <div className="cart-item-info">
         <Typography variant="h6">
           {props.item.info.name}
         </Typography>
         <Typography variant="body1">
           {props.item.info.substanceName}
         </Typography>
-        <ButtonGroup size="small" style={{ marginTop: "1em" }}>
-          <Button onClick={() => setAmount(amount - 1)}>
+        <ButtonGroup size="small">
+          <Button onClick={() => props.CartStore.decrementById(props.item.info.id)}>
             <RemoveIcon/>
           </Button>
-          <Button>{amount}</Button>
-          <Button onClick={() => setAmount(amount + 1)}>
+          <Button style={{ color: colors.primary, borderColor: colors.primarySoft }} disabled>
+            {props.item.amount}
+          </Button>
+          <Button onClick={() => props.CartStore.incrementById(props.item.info.id)}>
             <AddIcon/>
           </Button>
         </ButtonGroup>
       </div>
-      <div>
+      <div className="cart-item-buttons">
         <IconButton color="info"
           size="large"
           component={Link}
@@ -50,8 +47,8 @@ const CartItemPaper = inject(StoresNames.CartStoreName)(observer((props: any) =>
           <DeleteOutlineIcon/>
         </IconButton>
       </div>
-    </Paper>
+    </div>
   );
 }));
 
-export default CartItemPaper;
+export default CartItem;

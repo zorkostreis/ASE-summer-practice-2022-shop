@@ -10,7 +10,7 @@ const ItemPage = inject(StoresNames.ItemStoreName)(observer((props: any) => {
   const itemStore = props.ItemStore;
   const {id} = useParams();
 
-  const item = itemStore.readItem(Number(id));
+  const item = itemStore.getItemById(Number(id));
 
   return (
     <Card className="item-page-card">

@@ -27,11 +27,20 @@ export default class CartStore {
     return this.items.findIndex(item => item.info.id === id);
   };
 
-  setAmountById = (id: number, amount: number) => {
+  decrementById = (id: number) => {
     const foundItemIndex = this.findItemIndex(id);
 
-    amount === 0
+    this.items[foundItemIndex].amount === 1
       ? this.deleteItem(id)
-      : this.items[foundItemIndex].amount = amount;
+      : this.items[foundItemIndex].amount -= 1;
+  };
+
+  incrementById = (id: number) => {
+    this.items[this.findItemIndex(id)].amount += 1;
+  };
+
+  getTotalAmount = () => {
+    return this.items.map((item: CartItemModel) => item.amount)
+      .reduce((total, arg) => total + arg, 0);
   };
 }

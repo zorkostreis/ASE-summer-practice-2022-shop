@@ -8,7 +8,7 @@ import {Link} from "react-router-dom";
 
 import {StoresNames} from "../stores/StoreDictionary";
 
-const ItemCard = inject(StoresNames.CartStoreName)(observer((props: any) => {
+const CatalogItemCard = inject(StoresNames.CartStoreName)(observer((props: any) => {
   return (
     <Card>
       <CardContent className='card-content'>
@@ -42,4 +42,4 @@ const ItemCard = inject(StoresNames.CartStoreName)(observer((props: any) => {
   );
 }));
 
-export default ItemCard;
+export default CatalogItemCard;

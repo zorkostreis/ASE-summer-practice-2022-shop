@@ -20,15 +20,21 @@ const theme = createTheme({
     allVariants: {
       fontWeight: 300,
     },
-    h5: {
+    h4: {
       color: "inherit",
+      textDecoration: "none",
+      fontWeight: 500,
+      fontSize: "xx-large"
+    },
+    h5: {
+      color: colors.primaryDark,
       textDecoration: "none",
       fontWeight: 500,
     },
     h6: {
       fontWeight: 400,
       fontSize: "large",
-      color: colors.cardName
+      color: colors.primaryDark
     },
     body1: {
       fontSize: "medium",

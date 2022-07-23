@@ -22,7 +22,7 @@ export default class ItemStore {
     this.count = count;
   };
 
-  readItem(id: number) {
+  getItemById(id: number) {
     return this.items.find((item: ItemModel) => item.id === id);
   }
 

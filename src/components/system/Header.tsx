@@ -9,9 +9,8 @@ import {StoresNames} from "../../stores/StoreDictionary";
 const Header = inject(StoresNames.CartStoreName)(observer((props: any) => {
   return (
     <AppBar position="static">
-      <Toolbar>
-        <Typography variant="h5"
-          sx={{ flexGrow: 1 }}
+      <Toolbar style={{ display: "flex", justifyContent: "space-between" }}>
+        <Typography variant="h4"
           component={Link}
           to="/"
         >
@@ -23,7 +22,7 @@ const Header = inject(StoresNames.CartStoreName)(observer((props: any) => {
           to="/cart"
         >
           <Badge color="error"
-            badgeContent={props.CartStore.items.length}
+            badgeContent={props.CartStore.getTotalAmount()}
           >
             <ShoppingCartIcon/>
           </Badge>

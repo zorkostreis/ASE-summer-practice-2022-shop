@@ -1,8 +1,9 @@
 export interface IColors {
   primary: string;
+  primarySoft: string;
   secondary: string;
   info: string;
-  cardName: string;
+  primaryDark: string;
   cardSubstanceName: string;
   cardSubstanceCode: string;
 }
