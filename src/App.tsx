@@ -23,13 +23,13 @@ function App() {
   const itemService = new ItemService(itemStore, networkService);
 
   const stores = {
-    [StoresNames.ItemStoreName]: itemStore,
-    [StoresNames.CartStoreName]: cartStore
+    [StoresNames.ItemStore]: itemStore,
+    [StoresNames.CartStore]: cartStore
   };
 
   const services = {
-    [ServicesNames.ItemServiceName]: itemService,
-    [ServicesNames.NetworkServiceName]: networkService
+    [ServicesNames.ItemService]: itemService,
+    [ServicesNames.NetworkService]: networkService
   };
 
   return (

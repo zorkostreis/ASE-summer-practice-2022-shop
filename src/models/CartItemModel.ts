@@ -1,5 +1,6 @@
-import ItemModel from "./ItemModel";
 import {makeAutoObservable} from "mobx";
+
+import ItemModel from "./ItemModel";
 
 export default class CartItemModel {
   info: ItemModel;

@@ -1,16 +1,14 @@
-import AddIcon from "@mui/icons-material/Add";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import ReadMoreIcon from "@mui/icons-material/ReadMore";
-import RemoveIcon from "@mui/icons-material/Remove";
-import {Button, ButtonGroup, IconButton, Typography} from "@mui/material";
+import {IconButton, Typography} from "@mui/material";
 import {inject, observer} from "mobx-react";
 import React from "react";
 import {Link} from "react-router-dom";
 
 import {StoresNames} from "../stores/StoreDictionary";
-import colors from "../styles/colors.modules.scss";
+import Counter from "./common/Counter";
 
-const CartItem = inject(StoresNames.CartStoreName)(observer((props: any) => {
+const CartItem = inject(StoresNames.CartStore)(observer((props: any) => {
   return (
     <div className="cart-item">
       <div className="cart-item-info">
@@ -20,17 +18,7 @@ const CartItem = inject(StoresNames.CartStoreName)(observer((props: any) => {
         <Typography variant="body1">
           {props.item.info.substanceName}
         </Typography>
-        <ButtonGroup size="small">
-          <Button onClick={() => props.CartStore.decrementById(props.item.info.id)}>
-            <RemoveIcon/>
-          </Button>
-          <Button style={{ color: colors.primary, borderColor: colors.primarySoft }} disabled>
-            {props.item.amount}
-          </Button>
-          <Button onClick={() => props.CartStore.incrementById(props.item.info.id)}>
-            <AddIcon/>
-          </Button>
-        </ButtonGroup>
+        <Counter item={props.item}/>
       </div>
       <div className="cart-item-buttons">
         <IconButton color="info"
@@ -42,7 +30,7 @@ const CartItem = inject(StoresNames.CartStoreName)(observer((props: any) => {
         </IconButton>
         <IconButton color="default"
           size="large"
-          onClick={() => props.CartStore.deleteItem(props.item.info.id)}
+          onClick={() => props.CartStore.deleteItemById(props.item.info.id)}
         >
           <DeleteOutlineIcon/>
         </IconButton>

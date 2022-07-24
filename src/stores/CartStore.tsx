@@ -11,36 +11,29 @@ export default class CartStore {
     this.items = [];
   };
 
-  addItem = (itemToAdd: ItemModel) => {
-    const foundItemIndex = this.findItemIndex(itemToAdd.id);
-
-    foundItemIndex === -1
-      ? this.items = [new CartItemModel(itemToAdd), ...this.items]
-      : this.items[foundItemIndex].amount += 1;
+  addItem = (newItem: ItemModel) => {
+    this.items = [new CartItemModel(newItem), ...this.items];
   };
 
-  deleteItem = (id: number) => {
+  deleteItemById = (id: number) => {
     this.items = this.items.filter(item => item.info.id !== id);
   };
 
-  findItemIndex = (id: number) => {
-    return this.items.findIndex(item => item.info.id === id);
-  };
-
-  decrementById = (id: number) => {
-    const foundItemIndex = this.findItemIndex(id);
-
-    this.items[foundItemIndex].amount === 1
-      ? this.deleteItem(id)
-      : this.items[foundItemIndex].amount -= 1;
-  };
-
-  incrementById = (id: number) => {
-    this.items[this.findItemIndex(id)].amount += 1;
+  findItemById = (id: number) => {
+    return this.items.find(item => item.info.id === id);
   };
 
   getTotalAmount = () => {
-    return this.items.map((item: CartItemModel) => item.amount)
-      .reduce((total, arg) => total + arg, 0);
+    return this.items.reduce((total, item) => total + item.amount, 0);
+  };
+
+  incrementAmount = (item: CartItemModel) => {
+    item.amount += 1;
+  };
+
+  decrementAmount = (item: CartItemModel) => {
+    item.amount === 1
+      ? this.deleteItemById(item.info.id)
+      : item.amount -= 1;
   };
 }

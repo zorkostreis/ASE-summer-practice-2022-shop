@@ -7,10 +7,24 @@ import React from 'react';
 import {Link} from "react-router-dom";
 
 import {StoresNames} from "../stores/StoreDictionary";
+import Counter from "./common/Counter";
 
-const CatalogItemCard = inject(StoresNames.CartStoreName)(observer((props: any) => {
+const ItemCard = inject(StoresNames.CartStore)(observer((props: any) => {
+  const foundCartItem = props.CartStore.findItemById(props.item.id);
+
+  const buttonToShow = foundCartItem
+    ? <Counter item={foundCartItem}/>
+    : (
+      <IconButton color="secondary"
+        size="large"
+        onClick={() => props.CartStore.addItem(props.item)}
+      >
+        <AddShoppingCartIcon/>
+      </IconButton>
+    );
+    
   return (
-    <Card>
+    <Card style={{ padding: ".7em" }}>
       <CardContent className='card-content'>
         <Typography variant="h6">
           {props.item.name}
@@ -18,9 +32,6 @@ const CatalogItemCard = inject(StoresNames.CartStoreName)(observer((props: any) 
         <Divider/>
         <Typography variant="body1">
           {props.item.substanceName}
-        </Typography>
-        <Typography variant="body2">
-          {props.item.substanceCode}
         </Typography>
       </CardContent>
       <CardActions className='card-buttons'>
@@ -31,15 +42,10 @@ const CatalogItemCard = inject(StoresNames.CartStoreName)(observer((props: any) 
         >
           <ReadMoreIcon/>
         </IconButton>
-        <IconButton color="secondary"
-          size="large"          
-          onClick={() => props.CartStore.addItem(props.item)}
-        >
-          <AddShoppingCartIcon/>
-        </IconButton>
+        {buttonToShow}
       </CardActions>
     </Card>
   );
 }));
 
-export default CatalogItemCard;
+export default ItemCard;

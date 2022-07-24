@@ -21,15 +21,14 @@ const theme = createTheme({
       fontWeight: 300,
     },
     h4: {
+      fontWeight: 500,
+      fontSize: "xx-large",
       color: "inherit",
       textDecoration: "none",
-      fontWeight: 500,
-      fontSize: "xx-large"
     },
     h5: {
-      color: colors.primaryDark,
-      textDecoration: "none",
       fontWeight: 500,
+      color: colors.primaryDark,
     },
     h6: {
       fontWeight: 400,

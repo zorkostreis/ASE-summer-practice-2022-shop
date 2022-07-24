@@ -6,7 +6,9 @@ import {Link} from "react-router-dom";
 
 import {StoresNames} from "../../stores/StoreDictionary";
 
-const Header = inject(StoresNames.CartStoreName)(observer((props: any) => {
+const Header = inject(StoresNames.CartStore)(observer((props: any) => {
+  const totalAmount = props.CartStore.getTotalAmount();
+
   return (
     <AppBar position="static">
       <Toolbar style={{ display: "flex", justifyContent: "space-between" }}>
@@ -22,7 +24,7 @@ const Header = inject(StoresNames.CartStoreName)(observer((props: any) => {
           to="/cart"
         >
           <Badge color="error"
-            badgeContent={props.CartStore.getTotalAmount()}
+            badgeContent={totalAmount}
           >
             <ShoppingCartIcon/>
           </Badge>
