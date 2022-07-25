@@ -7,7 +7,7 @@ import ItemModel from "../models/ItemModel";
 import {ServicesNames} from "../services/ServiceDictionary";
 import {StoresNames} from "../stores/StoreDictionary";
 
-const CatalogPage = inject(StoresNames.ItemStoreName, ServicesNames.ItemServiceName)(observer((props: any) => {
+const CatalogPage = inject(StoresNames.ItemStore, ServicesNames.ItemService)(observer((props: any) => {
   const initialPage = localStorage.getItem('page') ? JSON.parse(localStorage.getItem('page') as string).number : 1;
 
   const [page, setPage] = useState(initialPage);

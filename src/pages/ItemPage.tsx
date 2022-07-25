@@ -6,11 +6,11 @@ import {useParams} from "react-router-dom";
 
 import {StoresNames} from "../stores/StoreDictionary";
 
-const ItemPage = inject(StoresNames.ItemStoreName)(observer((props: any) => {
+const ItemPage = inject(StoresNames.ItemStore)(observer((props: any) => {
   const itemStore = props.ItemStore;
   const {id} = useParams();
 
-  const item = itemStore.readItem(Number(id));
+  const item = itemStore.getItemById(Number(id));
 
   return (
     <Card className="item-page-card">

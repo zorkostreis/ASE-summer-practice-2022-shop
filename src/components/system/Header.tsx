@@ -6,12 +6,13 @@ import {Link} from "react-router-dom";
 
 import {StoresNames} from "../../stores/StoreDictionary";
 
-const Header = inject(StoresNames.BasketStoreName)(observer((props: any) => {
+const Header = inject(StoresNames.CartStore)(observer((props: any) => {
+  const totalAmount = props.CartStore.getTotalAmount();
+
   return (
     <AppBar position="static">
-      <Toolbar>
-        <Typography variant="h5"
-          sx={{ flexGrow: 1 }}
+      <Toolbar style={{ display: "flex", justifyContent: "space-between" }}>
+        <Typography variant="h4"
           component={Link}
           to="/"
         >
@@ -20,10 +21,10 @@ const Header = inject(StoresNames.BasketStoreName)(observer((props: any) => {
         <IconButton color="inherit"
           size="large"
           component={Link}
-          to="/basket"
+          to="/cart"
         >
           <Badge color="error"
-            badgeContent={props.BasketStore.items.length}
+            badgeContent={totalAmount}
           >
             <ShoppingCartIcon/>
           </Badge>
