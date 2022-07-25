@@ -1,4 +1,4 @@
-import ItemStore from "../stores/ItemStore";
+import ItemStore from "@/stores/ItemStore";
 import NetworkService from "./NetworkService";
 
 export default class ItemService {

@@ -4,7 +4,7 @@ import {inject, observer} from "mobx-react";
 import React from "react";
 import {useParams} from "react-router-dom";
 
-import {StoresNames} from "../stores/StoreDictionary";
+import {StoresNames} from "@/stores/StoreDictionary";
 
 const ItemPage = inject(StoresNames.ItemStore)(observer((props: any) => {
   const itemStore = props.ItemStore;

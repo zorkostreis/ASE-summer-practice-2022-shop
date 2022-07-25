@@ -5,13 +5,14 @@ import {inject, observer} from "mobx-react";
 import React from "react";
 import {Link} from "react-router-dom";
 
-import {StoresNames} from "../stores/StoreDictionary";
+import {StoresNames} from "@/stores/StoreDictionary";
+
 import Counter from "./common/Counter";
 
 const CartItem = inject(StoresNames.CartStore)(observer((props: any) => {
   return (
     <div className="cart-item">
-      <div className="cart-item-info">
+      <div className="d-flex flex-column gap-3">
         <Typography variant="h6">
           {props.item.info.name}
         </Typography>
@@ -20,7 +21,7 @@ const CartItem = inject(StoresNames.CartStore)(observer((props: any) => {
         </Typography>
         <Counter item={props.item}/>
       </div>
-      <div className="cart-item-buttons">
+      <div className="d-flex flex-column justify-content-center gap-3">
         <IconButton color="info"
           size="large"
           component={Link}

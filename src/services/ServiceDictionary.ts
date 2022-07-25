@@ -1,4 +1,5 @@
 export enum ServicesNames  {
   ItemService = 'ItemService',
-  NetworkService = 'NetworkService'
+  NetworkService = 'NetworkService',
+  AppService = 'AppService'
 }

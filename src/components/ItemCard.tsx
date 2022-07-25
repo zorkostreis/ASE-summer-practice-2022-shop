@@ -6,7 +6,8 @@ import {inject, observer} from "mobx-react";
 import React from 'react';
 import {Link} from "react-router-dom";
 
-import {StoresNames} from "../stores/StoreDictionary";
+import {StoresNames} from "@/stores/StoreDictionary";
+
 import Counter from "./common/Counter";
 
 const ItemCard = inject(StoresNames.CartStore)(observer((props: any) => {
@@ -24,7 +25,7 @@ const ItemCard = inject(StoresNames.CartStore)(observer((props: any) => {
     );
     
   return (
-    <Card style={{ padding: ".7em" }}>
+    <Card className="p-2">
       <CardContent className='card-content'>
         <Typography variant="h6">
           {props.item.name}
@@ -34,7 +35,7 @@ const ItemCard = inject(StoresNames.CartStore)(observer((props: any) => {
           {props.item.substanceName}
         </Typography>
       </CardContent>
-      <CardActions className='card-buttons'>
+      <CardActions className="d-flex justify-content-between">
         <IconButton color="info"
           size="large"
           component={Link}

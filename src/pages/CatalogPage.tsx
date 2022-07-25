@@ -2,10 +2,10 @@ import {Grid, Pagination} from "@mui/material";
 import {inject, observer} from "mobx-react";
 import React, {useEffect, useState} from "react";
 
-import ItemCard from "../components/ItemCard";
-import ItemModel from "../models/ItemModel";
-import {ServicesNames} from "../services/ServiceDictionary";
-import {StoresNames} from "../stores/StoreDictionary";
+import ItemCard from "@/components/ItemCard";
+import ItemModel from "@/models/ItemModel";
+import {ServicesNames} from "@/services/ServiceDictionary";
+import {StoresNames} from "@/stores/StoreDictionary";
 
 const CatalogPage = inject(StoresNames.ItemStore, ServicesNames.ItemService)(observer((props: any) => {
   const initialPage = localStorage.getItem('page') ? JSON.parse(localStorage.getItem('page') as string).number : 1;
@@ -31,7 +31,7 @@ const CatalogPage = inject(StoresNames.ItemStore, ServicesNames.ItemService)(obs
         page={page}
         onChange={handleChange}
         // size="large"
-        className="pagination-bar"
+        className="d-flex justify-content-center mt-3"
         showFirstButton
         showLastButton
       />

@@ -4,8 +4,8 @@ import {Button, ButtonGroup} from "@mui/material";
 import {inject, observer} from "mobx-react";
 import React from "react";
 
-import {StoresNames} from "../../stores/StoreDictionary";
-import colors from "../../styles/colors.modules.scss";
+import {StoresNames} from "@/stores/StoreDictionary";
+import colors from "@/styles/colors.modules.scss";
 
 const Counter = inject(StoresNames.CartStore)(observer((props: any) => {
   return (
