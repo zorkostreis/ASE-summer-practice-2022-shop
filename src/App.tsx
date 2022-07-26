@@ -20,7 +20,7 @@ function App() {
   const itemStore = new ItemStore();
   const cartStore = new CartStore();
 
-  const networkService = new NetworkService(endpoint);
+  const networkService = new NetworkService(endpoint, appStore.token);
   const itemService = new ItemService(itemStore, networkService);
   const appService = new AppService(appStore, networkService);
 

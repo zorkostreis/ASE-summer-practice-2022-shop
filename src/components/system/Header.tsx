@@ -5,9 +5,10 @@ import {inject, observer} from "mobx-react";
 import React from 'react';
 import {Link} from "react-router-dom";
 
-import {StoresNames} from "../../stores/StoreDictionary";
+import {StoresNames} from "@/stores/StoreDictionary";
+import {ServicesNames} from "@/services/ServiceDictionary";
 
-const Header = inject(StoresNames.CartStore, StoresNames.AppStore)(observer((props: any) => {
+const Header = inject(StoresNames.CartStore, ServicesNames.AppService)(observer((props: any) => {
   const totalAmount = props.CartStore.getTotalAmount();
 
   return (
@@ -33,7 +34,7 @@ const Header = inject(StoresNames.CartStore, StoresNames.AppStore)(observer((pro
           </IconButton>
           <IconButton color="inherit"
             size="large"
-            onClick={() => props.AppStore.logOut()}
+            onClick={() => props.AppService.logOut()}
           >
             <LogoutIcon/>
           </IconButton>
