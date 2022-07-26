@@ -26,23 +26,9 @@
   border-top: 0.5px solid $primarySoft;
 }
 
-.cart-item-info {
-  display: flex;
-  flex-direction: column;
-  gap: 0.8em;
-}
-
-.cart-item-buttons {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 1em;
-}
-
 .cart-form {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
   width: 35%;
   padding: 2em;
   gap: 2em;

@@ -5,10 +5,9 @@ body {
   margin: 0;
   padding: 0;
 }
-
-.card-buttons {
-  display: flex;
-  justify-content: space-between;
+a, a:hover {
+  text-decoration: none;
+  color: inherit;
 }
 
 .card-content {
@@ -18,15 +17,22 @@ body {
   height: 220px;
 }
 
-.pagination-bar {
-  display: flex;
-  justify-content: center;
-  margin-top: 0.8em;
-}
-
 .item-page-card {
   max-width: 45%;
   min-width: 400px;
   margin: 2em auto auto;
   padding: 1em;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  padding: 3em;
+  background-color: white;
+  width: 30%;
+  min-width: 450px;
+  margin: auto;
+  border-radius: 10px 10px 0 0;
+  border-bottom: 2px solid $primarySoft;
 }

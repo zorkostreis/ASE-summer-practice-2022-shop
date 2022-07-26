@@ -1,7 +1,7 @@
 import {makeAutoObservable} from "mobx";
 
-import ItemModel from "../models/ItemModel";
-import IProduct from "../models/ProductInterface";
+import ItemModel from "@/models/ItemModel";
+import IProduct from "@/models/ProductInterface";
 
 export default class ItemStore {
   items: ItemModel[];

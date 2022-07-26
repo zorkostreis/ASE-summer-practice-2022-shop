@@ -1,7 +1,7 @@
 import {makeAutoObservable} from "mobx";
 
-import CartItemModel from "../models/CartItemModel";
-import ItemModel from "../models/ItemModel";
+import CartItemModel from "@/models/CartItemModel";
+import ItemModel from "@/models/ItemModel";
 
 export default class CartStore {
   items: CartItemModel[];

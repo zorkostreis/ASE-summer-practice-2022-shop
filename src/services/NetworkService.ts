@@ -3,8 +3,11 @@ export default class NetworkService {
 
   token: string;
 
-  constructor(endpoint: string, token: string) {
+  constructor(endpoint: string) {
     this.endpoint = endpoint;
+  }
+
+  setToken(token: string) {
     this.token = token;
   }
 
@@ -23,5 +26,13 @@ export default class NetworkService {
       fetch(`${this.endpoint}${url}`, requestOptions)
         .then((response) => response.json())
     );
+  }
+
+  getToken(url: string, requestType: string, body: any) {
+    const token = localStorage.getItem('token') as string;
+
+    if (body.email === 'user@user' && body.password === 'user') {
+      return token;
+    }
   }
 }

@@ -1,12 +1,12 @@
-import '../styles/cart.scss';
+import '@/styles/cart.scss';
 
 import {Button, TextField, Typography} from "@mui/material";
 import {inject, observer} from "mobx-react";
 import React from "react";
 
-import CartItem from "../components/CartItem";
-import CartItemModel from "../models/CartItemModel";
-import {StoresNames} from "../stores/StoreDictionary";
+import CartItem from "@/components/CartItem";
+import CartItemModel from "@/models/CartItemModel";
+import {StoresNames} from "@/stores/StoreDictionary";
 
 const CartPage = inject(StoresNames.CartStore)(observer((props: any) => {
   const cartItems = props.CartStore.items.map((item: CartItemModel) =>
@@ -16,7 +16,7 @@ const CartPage = inject(StoresNames.CartStore)(observer((props: any) => {
   return (
     <div className="cart-page">
       <div className="cart-items-list">
-        <Typography variant="h5" style={{ padding: "1em"}}>Shopping Cart</Typography>
+        <Typography variant="h5" className="p-4">Shopping Cart</Typography>
         {cartItems}
       </div>
       <div className="cart-form">
