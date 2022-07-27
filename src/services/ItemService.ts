@@ -14,7 +14,7 @@ export default class ItemService {
   async setItemStore(offset: number, limit: number) {
     const url = 'products/part';
     const requestType = 'POST';
-    const body = JSON.stringify({ offset, limit });
+    const body = { offset, limit };
 
     const {data} = await this.networkService.fetch(url, requestType, body);
     this.itemStore.setItems(data.products);

@@ -2,7 +2,7 @@ import AppStore from "@/stores/AppStore";
 
 import NetworkService from "./NetworkService";
 
-export default class ItemService {
+export default class AppService {
   appStore: AppStore;
 
   networkService: NetworkService;
@@ -12,29 +12,25 @@ export default class ItemService {
     this.networkService = networkService;
   }
 
-  async login(email: string, password: string) {
-    const url = 'user/login';
+  async logIn(email: string, password: string) {
+    const url = 'http://82.148.31.242/api/user/login';
     const requestType = 'POST';
     const body = { email, password };
 
-    // const {data} = await this.networkService.fetch(url, requestType, body);
-    const data = await this.networkService.getToken(url, requestType, body);
+    const {data} = await this.networkService.fetchToken(url, requestType, body);
 
-    if (!data) {
-      console.log("wrong email or password");
+    if (!data.token) {
+      alert("wrong email or password");
       return;
     }
 
-    this.appStore.logIn();
-    this.networkService.setToken(data);
+    localStorage.setItem('token', data.token);
+    this.appStore.setLoggedIn(true);
+    this.networkService.setToken(data.token);
   };
 
-  // async setUserInfo() {
-  //   const url = 'user/userInfo';
-  //   const requestType = 'GET';
-  //   const body = {};
-  //
-  //   const {data} = await this.networkService.fetch(url, requestType, body);
-  //   this.appStore.setUserInfo(data);
-  // }
+  logOut() {
+    localStorage.clear();
+    this.appStore.setLoggedIn(false);
+  }
 }

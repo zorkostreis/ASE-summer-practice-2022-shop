@@ -19,7 +19,7 @@ const AuthPage = inject(ServicesNames.AppService)(observer((props: any) => {
   const submitHandler = (event: any) => {
     event.preventDefault();
     if (email.trim() && password.trim()) {
-      props.AppService.login(email, password);
+      props.AppService.logIn(email, password);
     }
   };
 

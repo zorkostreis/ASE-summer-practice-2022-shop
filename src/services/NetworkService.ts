@@ -3,8 +3,9 @@ export default class NetworkService {
 
   token: string;
 
-  constructor(endpoint: string) {
+  constructor(endpoint: string, token: string) {
     this.endpoint = endpoint;
+    this.token = token;
   }
 
   setToken(token: string) {
@@ -19,7 +20,7 @@ export default class NetworkService {
         'Accept': 'application/json',
         'token': this.token
       },
-      body
+      body: JSON.stringify(body)
     };
 
     return (
@@ -28,11 +29,19 @@ export default class NetworkService {
     );
   }
 
-  getToken(url: string, requestType: string, body: any) {
-    const token = localStorage.getItem('token') as string;
+  fetchToken(url: string, requestType: string, body: any) {
+    const requestOptions = {
+      method: requestType,
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+      },
+      body: JSON.stringify(body)
+    };
 
-    if (body.email === 'user@user' && body.password === 'user') {
-      return token;
-    }
+    return (
+      fetch(url, requestOptions)
+        .then((response) => response.json())
+    );
   }
 }

@@ -11,24 +11,26 @@ import {StoresNames} from "./stores/StoreDictionary";
 
 const Router = inject(StoresNames.AppStore)(observer((props: any) => {
   function getPage(Component: any) {
-    if (props.AppStore.loggedIn) {
-      return (
-        <Page>
-          <Component/>
-        </Page>
-      );
-    }
+    return (
+      <Page>
+        <Component/>
+      </Page>
+    );
+  }
 
-    return <Navigate to="/auth" replace/>;
+  function navigatePage(page: any) {
+    return (props.AppStore.loggedIn)
+      ? getPage(page)
+      : <Navigate to="/auth" replace/>;
   }
 
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/auth" element={props.AppStore.loggedIn ? <Navigate to="/" replace/> : <AuthPage/>}/>
-        <Route path="/" element={getPage(CatalogPage)}/>
-        <Route path="/:id" element={getPage(ItemPage)}/>
-        <Route path="/cart" element={getPage(CartPage)}/>
+        <Route path="/" element={navigatePage(CatalogPage)}/>
+        <Route path="/:id" element={navigatePage(ItemPage)}/>
+        <Route path="/cart" element={navigatePage(CartPage)}/>
       </Routes>
     </BrowserRouter>
   );
