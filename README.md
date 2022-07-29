@@ -1,7 +1,5 @@
 # ASE-summer-practice-2022-shop
 
-## Available Scripts
-
 In the project directory, you can run:
 
 ### `craco start`
